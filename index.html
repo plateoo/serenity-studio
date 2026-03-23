@@ -871,6 +871,252 @@ nav.nav-intro .nav-burger span  { background: rgba(242,237,232,0.75); }
 }
 
 /* ─────────────────────────────────────────
+   PACKS
+───────────────────────────────────────── */
+#packs {
+  padding: 7rem 0;
+  background: var(--creme);
+  position: relative;
+  z-index: 1;
+}
+.packs-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.packs-header .section-sub { margin: 0 auto; }
+
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+  align-items: start;
+}
+.pack-card {
+  background: var(--blanc);
+  border-radius: var(--radius);
+  padding: 2rem 1.8rem;
+  border: 1px solid var(--border);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s, border-color 0.3s;
+}
+.pack-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad);
+  border-radius: var(--radius) var(--radius) 0 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.pack-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(42,106,168,0.12); border-color: rgba(42,106,168,0.22); }
+.pack-card:hover::before { opacity: 1; }
+
+.pack-featured {
+  background: linear-gradient(170deg, var(--blanc) 0%, rgba(42,106,168,0.03) 100%);
+  border-color: rgba(42,106,168,0.30);
+  box-shadow: 0 10px 40px rgba(42,106,168,0.14);
+  transform: translateY(-10px);
+}
+.pack-featured::before { opacity: 1; }
+.pack-featured:hover { transform: translateY(-16px); box-shadow: 0 22px 64px rgba(42,106,168,0.22); border-color: rgba(42,106,168,0.45); }
+
+.pack-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grad);
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.28rem 1rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(42,106,168,0.30);
+}
+.pack-emoji { font-size: 1.9rem; margin-bottom: 0.8rem; line-height: 1; }
+.pack-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--noir);
+  margin-bottom: 0.6rem;
+}
+.pack-price-wrap { margin-bottom: 1.3rem; }
+.pack-price {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.pack-price-label {
+  font-size: 0.68rem;
+  color: var(--texte-doux);
+  margin-top: 0.25rem;
+}
+.pack-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+  flex: 1;
+}
+.pack-features li {
+  font-size: 0.82rem;
+  color: var(--texte-doux);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.4;
+}
+.pack-features li::before {
+  content: '✓';
+  color: var(--sauge);
+  font-weight: 700;
+  font-size: 0.72rem;
+  margin-top: 0.08rem;
+  flex-shrink: 0;
+}
+.pack-cta {
+  display: block;
+  text-align: center;
+  background: var(--grad);
+  color: #fff;
+  font-size: 0.83rem;
+  font-weight: 500;
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(42,106,168,0.22);
+  letter-spacing: 0.02em;
+}
+.pack-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.pack-devis {
+  background: rgba(30,42,36,0.02);
+  border-style: dashed;
+  border-color: rgba(30,42,36,0.12);
+}
+.pack-devis .pack-price {
+  font-size: 1.45rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  background: none;
+  -webkit-text-fill-color: var(--texte-doux);
+  color: var(--texte-doux);
+}
+.pack-devis .pack-cta {
+  background: transparent;
+  border: 1.5px solid var(--bleu);
+  color: var(--bleu);
+  box-shadow: none;
+}
+.pack-devis .pack-cta:hover { background: var(--bleu); color: #fff; }
+
+.packs-devis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  max-width: 620px;
+  margin: 0 auto 1.8rem;
+}
+.packs-note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--texte-doux);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────
+   CAROUSEL RÉALISATIONS
+───────────────────────────────────────── */
+.carousel-wrapper {
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: 1.5rem 0 1rem;
+  position: relative;
+}
+.carousel-wrapper.is-dragging { cursor: grabbing; }
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem 2rem 1.5rem;
+  will-change: transform;
+  touch-action: pan-y;
+}
+.carousel-item {
+  flex-shrink: 0;
+  width: min(840px, 88vw);
+}
+.carousel-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.carousel-hint {
+  font-size: 0.62rem;
+  color: var(--texte-doux);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+.carousel-dots { display: flex; justify-content: center; gap: 0.5rem; }
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s, width 0.3s, border-radius 0.3s;
+  cursor: pointer;
+  border: 1px solid rgba(30,42,36,0.1);
+}
+.carousel-dot:hover { background: rgba(42,106,168,0.3); }
+.carousel-dot.active { background: var(--bleu); width: 22px; border-radius: 3px; border-color: transparent; }
+
+/* ─── DigitalScho preview ─── */
+.dscho-preview {
+  background: linear-gradient(160deg, #1a1624 0%, #221a30 60%, #281e3a 100%);
+}
+.dscho-preview::before {
+  background: radial-gradient(circle, rgba(212,160,200,0.12) 0%, transparent 70%);
+}
+.dscho-demo { flex:1; display:flex; flex-direction:column; gap:0.9rem; }
+.dscho-nav { display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.05); border-radius:6px; padding:0.5rem 0.8rem; border:1px solid rgba(255,255,255,0.08); }
+.dscho-brand { font-family:'Cormorant Garamond',serif; font-size:0.9rem; font-weight:400; font-style:italic; color:#d4a0c8; letter-spacing:0.08em; }
+.dscho-links { display:flex; gap:0.6rem; }
+.dscho-links span { font-size:0.52rem; color:rgba(255,255,255,0.38); }
+.dscho-hero { background:rgba(255,255,255,0.04); border-radius:8px; padding:1.2rem 1.4rem; border:1px solid rgba(212,160,200,0.12); }
+.dscho-name { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.15rem; }
+.dscho-subtitle { font-size:0.58rem; color:rgba(212,160,200,0.65); letter-spacing:0.16em; text-transform:uppercase; }
+.dscho-line { height:1px; background:linear-gradient(to right,rgba(212,160,200,0.4),transparent); margin:0.6rem 0; }
+.dscho-phrase { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.82rem; color:rgba(255,255,255,0.65); }
+.dscho-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; }
+.dscho-img { border-radius:5px; aspect-ratio:4/3; }
+.dscho-img-1 { background:linear-gradient(135deg,rgba(212,160,200,0.28),rgba(200,130,180,0.16)); }
+.dscho-img-2 { background:linear-gradient(135deg,rgba(180,140,210,0.22),rgba(160,110,190,0.13)); }
+.dscho-img-3 { background:linear-gradient(135deg,rgba(200,160,220,0.20),rgba(180,130,200,0.12)); }
+.dscho-img-4 { background:linear-gradient(135deg,rgba(220,170,210,0.24),rgba(200,150,200,0.15)); border:1px solid rgba(212,160,200,0.14); }
+.dscho-cta { background:linear-gradient(135deg,rgba(212,160,200,0.30),rgba(160,100,200,0.20)); border-radius:5px; padding:0.5rem; font-size:0.6rem; color:rgba(255,255,255,0.80); font-weight:600; text-align:center; border:1px solid rgba(212,160,200,0.20); }
+
+/* ─────────────────────────────────────────
    APPROCHE
 ───────────────────────────────────────── */
 #approche {
@@ -1210,6 +1456,9 @@ footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1
   .hero-phrase       { text-align:left; }
   .hero-actions      { justify-content:center; }
   .services-grid     { grid-template-columns:1fr; max-width:480px; margin:0 auto; }
+  .packs-grid        { grid-template-columns: repeat(2, 1fr); }
+  .packs-devis       { grid-template-columns: repeat(2, 1fr); }
+  .pack-featured     { transform: none; }
   .approche-grid     { grid-template-columns:1fr; gap:3rem; }
   .project-card      { grid-template-columns:1fr; }
   .project-preview   { min-height:300px; }
@@ -1222,6 +1471,8 @@ footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1
   .hero-title { font-size:2.4rem; }
   .form-row   { grid-template-columns:1fr; }
   .form-service { grid-template-columns:1fr; }
+  .packs-grid        { grid-template-columns: 1fr; max-width:420px; margin-left:auto; margin-right:auto; }
+  .packs-devis       { grid-template-columns: 1fr; max-width:420px; margin-left:auto; margin-right:auto; }
   .ang-cards-row { grid-template-columns:1fr 1fr; }
   .footer-bottom { flex-direction:column; align-items:flex-start; }
   .skill-tag { display:none; }
@@ -1363,6 +1614,7 @@ db.projets.insert({ nom: 'DigitalScho', url: 'digitalscho.be' })</pre></div>
 
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
+        <li><a href="#packs">Packs</a></li>
         <li><a href="#approche">Approche</a></li>
         <li><a href="#realisations">Réalisations</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1620,6 +1872,135 @@ db.projets.insert({ nom: 'DigitalScho', url: 'digitalscho.be' })</pre></div>
 </section>
 
 
+<!-- ══════════════════════════ PACKS ══════════════════════════ -->
+<section id="packs">
+  <div class="container">
+    <div class="packs-header">
+      <div class="reveal"><span class="section-tag">Nos formules</span></div>
+      <h2 class="section-title reveal reveal-delay-1">Votre pack,<br>votre tarif.</h2>
+      <p class="section-sub reveal reveal-delay-2">Prix transparents. Valeur réelle. <em>Aucune mauvaise surprise.</em></p>
+    </div>
+
+    <!-- 4 packs tarifés -->
+    <div class="packs-grid">
+
+      <div class="pack-card reveal">
+        <div class="pack-emoji">🌱</div>
+        <div class="pack-name">Starter</div>
+        <div class="pack-price-wrap">
+          <div class="pack-price" data-count="299" data-suffix="€">299€</div>
+          <div class="pack-price-label">paiement unique</div>
+        </div>
+        <ul class="pack-features">
+          <li>Site vitrine (3 pages)</li>
+          <li>Design sur mesure</li>
+          <li>GitHub Pages inclus</li>
+          <li>Mobile first + responsive</li>
+          <li>SEO de base</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Démarrer →</a>
+      </div>
+
+      <div class="pack-card reveal reveal-delay-1">
+        <div class="pack-emoji">⚡</div>
+        <div class="pack-name">Digital</div>
+        <div class="pack-price-wrap">
+          <div class="pack-price" data-count="469" data-suffix="€">469€</div>
+          <div class="pack-price-label">paiement unique</div>
+        </div>
+        <ul class="pack-features">
+          <li>Site complet (6 pages)</li>
+          <li>Media Kit PDF inclus</li>
+          <li>Email professionnel</li>
+          <li>Domaine .be/.com 1 an</li>
+          <li>SEO optimisé</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Démarrer →</a>
+      </div>
+
+      <div class="pack-card pack-featured reveal reveal-delay-2">
+        <div class="pack-badge">⭐ Le plus demandé</div>
+        <div class="pack-emoji">👑</div>
+        <div class="pack-name">Influence</div>
+        <div class="pack-price-wrap">
+          <div class="pack-price" data-count="619" data-suffix="€">619€</div>
+          <div class="pack-price-label">paiement unique</div>
+        </div>
+        <ul class="pack-features">
+          <li>Site complet (8 pages)</li>
+          <li>Media Kit premium</li>
+          <li>Email pro + alias</li>
+          <li>Domaine 1 an</li>
+          <li>Interface admin simple</li>
+          <li>Support 30 jours inclus</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Démarrer →</a>
+      </div>
+
+      <div class="pack-card reveal reveal-delay-3">
+        <div class="pack-emoji">🚀</div>
+        <div class="pack-name">Brand</div>
+        <div class="pack-price-wrap">
+          <div class="pack-price" data-count="829" data-suffix="€">829€</div>
+          <div class="pack-price-label">paiement unique</div>
+        </div>
+        <ul class="pack-features">
+          <li>Identité visuelle complète</li>
+          <li>Site complet (10 pages)</li>
+          <li>Media Kit premium</li>
+          <li>Domaine + Email pro</li>
+          <li>Formation avancée incluse</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Démarrer →</a>
+      </div>
+
+    </div>
+
+    <!-- 2 packs sur devis -->
+    <div class="packs-devis">
+
+      <div class="pack-card pack-devis reveal">
+        <div class="pack-emoji">📱</div>
+        <div class="pack-name">App</div>
+        <div class="pack-price-wrap">
+          <div class="pack-price">Sur devis</div>
+          <div class="pack-price-label">devis gratuit sous 24h</div>
+        </div>
+        <ul class="pack-features">
+          <li>Application mobile (iOS / Android)</li>
+          <li>PWA ou native</li>
+          <li>Design UX/UI complet</li>
+          <li>Backend &amp; base de données</li>
+          <li>Tests &amp; déploiement</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Obtenir un devis →</a>
+      </div>
+
+      <div class="pack-card pack-devis reveal reveal-delay-1">
+        <div class="pack-emoji">💎</div>
+        <div class="pack-name">100% Custom</div>
+        <div class="pack-price-wrap">
+          <div class="pack-price">Sur devis</div>
+          <div class="pack-price-label">devis gratuit sous 24h</div>
+        </div>
+        <ul class="pack-features">
+          <li>Sans limite de pages ou fonctions</li>
+          <li>IA, e-commerce, portail client</li>
+          <li>Technologies avancées</li>
+          <li>Intégrations sur mesure</li>
+          <li>Accompagnement dédié</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Obtenir un devis →</a>
+      </div>
+
+    </div>
+
+    <p class="packs-note reveal">✓ Tous les packs incluent : mise en ligne, documentation complète &amp; appel découverte gratuit.</p>
+
+  </div>
+</section>
+
+
 <!-- ══════════════════════════ APPROCHE ══════════════════════════ -->
 <section id="approche">
   <div class="container">
@@ -1703,116 +2084,186 @@ db.projets.insert({ nom: 'DigitalScho', url: 'digitalscho.be' })</pre></div>
       <h2 class="section-title reveal reveal-delay-1">Des projets qui parlent d'eux-mêmes</h2>
       <p class="section-sub reveal reveal-delay-2">Chaque client est unique. Chaque solution <em>lui ressemble.</em></p>
     </div>
+  </div>
 
-    <div class="projects-list">
+  <!-- Carrousel draggable — pleine largeur -->
+  <div class="carousel-wrapper" id="carousel-wrapper">
+    <div class="carousel-track" id="carousel-track">
 
-      <div class="project-card reveal">
-        <div class="project-preview ang-preview">
-          <div>
-            <div class="preview-bar">
-              <div class="preview-dot red"></div>
-              <div class="preview-dot yel"></div>
-              <div class="preview-dot grn"></div>
-              <div class="preview-url">ang-homeprodeco.be</div>
+      <!-- ══ PROJET 1 — DigitalScho ══ -->
+      <div class="carousel-item">
+        <div class="project-card">
+          <div class="project-preview dscho-preview">
+            <div>
+              <div class="preview-bar">
+                <div class="preview-dot red"></div>
+                <div class="preview-dot yel"></div>
+                <div class="preview-dot grn"></div>
+                <div class="preview-url">digitalscho.be</div>
+              </div>
+            </div>
+            <div class="dscho-demo">
+              <div class="dscho-nav">
+                <div class="dscho-brand">DigitalScho</div>
+                <div class="dscho-links"><span>Blog</span><span>Lifestyle</span><span>Contact</span></div>
+              </div>
+              <div class="dscho-hero">
+                <div class="dscho-name">Céline Scholinckx</div>
+                <div class="dscho-subtitle">Lifestyle · Beauté · Liège</div>
+                <div class="dscho-line"></div>
+                <div class="dscho-phrase">"Partager l'essentiel, avec style."</div>
+              </div>
+              <div class="dscho-grid">
+                <div class="dscho-img dscho-img-1"></div>
+                <div class="dscho-img dscho-img-2"></div>
+                <div class="dscho-img dscho-img-3"></div>
+                <div class="dscho-img dscho-img-4"></div>
+              </div>
+              <div class="dscho-cta">Découvrir mon univers →</div>
             </div>
           </div>
-          <div class="ang-demo">
-            <div class="ang-nav">
-              <div class="ang-nav-logo">A.N.G Home Pro Deco</div>
-              <div class="ang-nav-links"><span>Services</span><span>Réalisations</span><span>Contact</span></div>
+          <div class="project-info">
+            <div class="project-status"><div class="project-status-dot"></div>Site en ligne</div>
+            <h3 class="project-name">DigitalScho</h3>
+            <p class="project-type">Personal brand & lifestyle · Influenceuse · Liège</p>
+            <p class="project-desc">Céline Scholinckx, influenceuse lifestyle liégeoise, voulait une présence digitale à son image — élégante, authentique, moderne. Site personnel, galerie photo, formulaire de collaboration et liens réseaux sociaux intégrés.</p>
+            <div class="project-details">
+              <div class="project-detail"><span class="detail-label">Localisation</span><span class="detail-val">Liège, Belgique</span></div>
+              <div class="project-detail"><span class="detail-label">Secteur</span><span class="detail-val">Influence &amp; Personal Brand</span></div>
+              <div class="project-detail"><span class="detail-label">URL</span><span class="detail-val"><a href="https://digitalscho.be" target="_blank" rel="noopener" style="color:var(--bleu)">digitalscho.be ↗</a></span></div>
             </div>
-            <div class="ang-hero-demo">
-              <div class="ang-hero-logo">Peintre en bâtiment</div>
-              <div class="ang-hero-sub">Herstal · Province de Liège · 35 ans d'expérience</div>
-              <div class="ang-hero-line"></div>
-              <div class="ang-hero-phrase">"La couleur juste, au bon endroit.<br>Depuis 1989."</div>
+            <div class="project-chips">
+              <span class="chip accent">Personal brand</span>
+              <span class="chip accent">Galerie photo</span>
+              <span class="chip">SEO</span>
+              <span class="chip">Mobile first</span>
+              <span class="chip">Design élégant</span>
             </div>
-            <div class="ang-cards-row">
-              <div class="ang-mini-card"><div class="ang-mini-icon">🖌️</div><div class="ang-mini-title">Peinture intérieure</div></div>
-              <div class="ang-mini-card"><div class="ang-mini-icon">🏗️</div><div class="ang-mini-title">Ravalement façade</div></div>
-              <div class="ang-mini-card"><div class="ang-mini-icon">✨</div><div class="ang-mini-title">Effets décoratifs</div></div>
-            </div>
-            <div class="ang-devis-row">
-              <div class="ang-devis-card violet"><div class="ang-devis-icon">📋</div><div><div class="ang-devis-label">Espace Devis</div><div class="ang-devis-sub">Demande en ligne · 24h</div></div></div>
-              <div class="ang-devis-card white"><div class="ang-devis-icon">🧾</div><div><div class="ang-devis-label">Espace Factures</div><div class="ang-devis-sub">Suivi client intégré</div></div></div>
-            </div>
-            <div class="ang-contact-row">
-              <div class="ang-contact-btn">Demander un devis gratuit</div>
-              <div class="ang-info-pill">📍 Herstal</div>
-            </div>
-          </div>
-        </div>
-        <div class="project-info">
-          <div class="project-status"><div class="project-status-dot"></div>Site en ligne</div>
-          <h3 class="project-name">A.N.G Home<br>Pro Deco</h3>
-          <p class="project-type">Site vitrine + espace devis/factures · Peintre en bâtiment</p>
-          <p class="project-desc">35 ans de métier, un savoir-faire irréprochable — mais aucune présence en ligne. On a créé un site vitrine en violet et blanc, avec un espace devis et un suivi factures intégré. Un outil professionnel, simple à utiliser, qui génère de vrais contacts.</p>
-          <div class="project-details">
-            <div class="project-detail"><span class="detail-label">Localisation</span><span class="detail-val">Herstal, province de Liège</span></div>
-            <div class="project-detail"><span class="detail-label">Secteur</span><span class="detail-val">Artisan — Peinture en bâtiment</span></div>
-            <div class="project-detail"><span class="detail-label">Identité</span><span class="detail-val">Violet #5c5b9a + blanc · Syne</span></div>
-          </div>
-          <div class="project-chips">
-            <span class="chip accent">Site vitrine</span>
-            <span class="chip accent">Espace devis</span>
-            <span class="chip">SEO local</span>
-            <span class="chip">Mobile first</span>
           </div>
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-1">
-        <div class="project-preview chassis-preview">
-          <div>
-            <div class="preview-bar">
-              <div class="preview-dot red"></div>
-              <div class="preview-dot yel"></div>
-              <div class="preview-dot grn"></div>
-              <div class="preview-url">chassisserenity.be</div>
+      <!-- ══ PROJET 2 — A.N.G Home Pro Deco ══ -->
+      <div class="carousel-item">
+        <div class="project-card">
+          <div class="project-preview ang-preview">
+            <div>
+              <div class="preview-bar">
+                <div class="preview-dot red"></div>
+                <div class="preview-dot yel"></div>
+                <div class="preview-dot grn"></div>
+                <div class="preview-url">ang-homeprodeco.be</div>
+              </div>
+            </div>
+            <div class="ang-demo">
+              <div class="ang-nav">
+                <div class="ang-nav-logo">A.N.G Home Pro Deco</div>
+                <div class="ang-nav-links"><span>Services</span><span>Réalisations</span><span>Contact</span></div>
+              </div>
+              <div class="ang-hero-demo">
+                <div class="ang-hero-logo">Peintre en bâtiment</div>
+                <div class="ang-hero-sub">Herstal · Province de Liège · 35 ans d'expérience</div>
+                <div class="ang-hero-line"></div>
+                <div class="ang-hero-phrase">"La couleur juste, au bon endroit.<br>Depuis 1989."</div>
+              </div>
+              <div class="ang-cards-row">
+                <div class="ang-mini-card"><div class="ang-mini-icon">🖌️</div><div class="ang-mini-title">Peinture intérieure</div></div>
+                <div class="ang-mini-card"><div class="ang-mini-icon">🏗️</div><div class="ang-mini-title">Ravalement façade</div></div>
+                <div class="ang-mini-card"><div class="ang-mini-icon">✨</div><div class="ang-mini-title">Effets décoratifs</div></div>
+              </div>
+              <div class="ang-devis-row">
+                <div class="ang-devis-card violet"><div class="ang-devis-icon">📋</div><div><div class="ang-devis-label">Espace Devis</div><div class="ang-devis-sub">Demande en ligne · 24h</div></div></div>
+                <div class="ang-devis-card white"><div class="ang-devis-icon">🧾</div><div><div class="ang-devis-label">Espace Factures</div><div class="ang-devis-sub">Suivi client intégré</div></div></div>
+              </div>
+              <div class="ang-contact-row">
+                <div class="ang-contact-btn">Demander un devis gratuit</div>
+                <div class="ang-info-pill">📍 Herstal</div>
+              </div>
             </div>
           </div>
-          <div class="chassis-demo">
-            <div class="chassis-hero">
-              <div class="chassis-logo">Les Châssis Serenity</div>
-              <div class="chassis-sub">Menuiserie &amp; Portes · Liège</div>
-              <div class="chassis-phrase">"Chaque ouverture est une promesse de lumière."</div>
+          <div class="project-info">
+            <div class="project-status"><div class="project-status-dot"></div>Site en ligne</div>
+            <h3 class="project-name">A.N.G Home<br>Pro Deco</h3>
+            <p class="project-type">Site vitrine + espace devis/factures · Peintre en bâtiment</p>
+            <p class="project-desc">35 ans de métier, un savoir-faire irréprochable — mais aucune présence en ligne. Site vitrine violet et blanc, avec espace devis et suivi factures intégré. Un outil professionnel qui génère de vrais contacts à Herstal.</p>
+            <div class="project-details">
+              <div class="project-detail"><span class="detail-label">Localisation</span><span class="detail-val">Herstal, province de Liège</span></div>
+              <div class="project-detail"><span class="detail-label">Secteur</span><span class="detail-val">Artisan — Peinture en bâtiment</span></div>
+              <div class="project-detail"><span class="detail-label">Identité</span><span class="detail-val">Violet #5c5b9a + blanc · Syne</span></div>
             </div>
-            <div class="chassis-products">
-              <div class="chassis-product"><span class="chassis-product-icon">🪟</span><div class="chassis-product-name">Châssis PVC &amp; Alu</div></div>
-              <div class="chassis-product"><span class="chassis-product-icon">🚪</span><div class="chassis-product-name">Portes d'entrée</div></div>
-              <div class="chassis-product"><span class="chassis-product-icon">🏠</span><div class="chassis-product-name">Vérandas</div></div>
-              <div class="chassis-product"><span class="chassis-product-icon">🔒</span><div class="chassis-product-name">Sécurité &amp; isolation</div></div>
+            <div class="project-chips">
+              <span class="chip accent">Site vitrine</span>
+              <span class="chip accent">Espace devis</span>
+              <span class="chip">SEO local</span>
+              <span class="chip">Mobile first</span>
             </div>
-            <div class="chassis-badges">
-              <span class="chassis-badge">Sur mesure</span>
-              <span class="chassis-badge">Pose incluse</span>
-              <span class="chassis-badge">Devis gratuit</span>
-              <span class="chassis-badge">Liège &amp; alentours</span>
-            </div>
-            <div class="chassis-cta">Demander un devis gratuit →</div>
           </div>
         </div>
-        <div class="project-info">
-          <div class="project-status"><div class="project-status-dot"></div>Site en ligne</div>
-          <h3 class="project-name">Les Châssis<br>Serenity</h3>
-          <p class="project-type">Site vitrine élégant · Menuiserie &amp; construction · Liège</p>
-          <p class="project-desc">Un artisan liégeois spécialisé en châssis, portes et vérandas sur mesure — avec un site à la hauteur de son savoir-faire. Design sobre et élégant, navigation intuitive, demande de devis en ligne.</p>
-          <div class="project-details">
-            <div class="project-detail"><span class="detail-label">Localisation</span><span class="detail-val">Liège et province</span></div>
-            <div class="project-detail"><span class="detail-label">Secteur</span><span class="detail-val">Menuiserie — Châssis &amp; Construction</span></div>
-            <div class="project-detail"><span class="detail-label">Style</span><span class="detail-val">Élégant, premium, épuré</span></div>
+      </div>
+
+      <!-- ══ PROJET 3 — Les Châssis Serenity ══ -->
+      <div class="carousel-item">
+        <div class="project-card">
+          <div class="project-preview chassis-preview">
+            <div>
+              <div class="preview-bar">
+                <div class="preview-dot red"></div>
+                <div class="preview-dot yel"></div>
+                <div class="preview-dot grn"></div>
+                <div class="preview-url">chassisserenity.be</div>
+              </div>
+            </div>
+            <div class="chassis-demo">
+              <div class="chassis-hero">
+                <div class="chassis-logo">Les Châssis Serenity</div>
+                <div class="chassis-sub">Menuiserie &amp; Portes · Liège</div>
+                <div class="chassis-phrase">"Chaque ouverture est une promesse de lumière."</div>
+              </div>
+              <div class="chassis-products">
+                <div class="chassis-product"><span class="chassis-product-icon">🪟</span><div class="chassis-product-name">Châssis PVC &amp; Alu</div></div>
+                <div class="chassis-product"><span class="chassis-product-icon">🚪</span><div class="chassis-product-name">Portes d'entrée</div></div>
+                <div class="chassis-product"><span class="chassis-product-icon">🏠</span><div class="chassis-product-name">Vérandas</div></div>
+                <div class="chassis-product"><span class="chassis-product-icon">🔒</span><div class="chassis-product-name">Sécurité &amp; isolation</div></div>
+              </div>
+              <div class="chassis-badges">
+                <span class="chassis-badge">Sur mesure</span>
+                <span class="chassis-badge">Pose incluse</span>
+                <span class="chassis-badge">Devis gratuit</span>
+                <span class="chassis-badge">Liège &amp; alentours</span>
+              </div>
+              <div class="chassis-cta">Demander un devis gratuit →</div>
+            </div>
           </div>
-          <div class="project-chips">
-            <span class="chip accent">Site vitrine</span>
-            <span class="chip accent">Configurateur devis</span>
-            <span class="chip">SEO local</span>
-            <span class="chip">Design premium</span>
+          <div class="project-info">
+            <div class="project-status"><div class="project-status-dot"></div>Site en ligne</div>
+            <h3 class="project-name">Les Châssis<br>Serenity</h3>
+            <p class="project-type">Site vitrine élégant · Menuiserie &amp; construction · Liège</p>
+            <p class="project-desc">Un artisan liégeois spécialisé en châssis, portes et vérandas sur mesure — avec un site à la hauteur de son savoir-faire. Design sobre et élégant, navigation intuitive, demande de devis en ligne.</p>
+            <div class="project-details">
+              <div class="project-detail"><span class="detail-label">Localisation</span><span class="detail-val">Liège et province</span></div>
+              <div class="project-detail"><span class="detail-label">Secteur</span><span class="detail-val">Menuiserie — Châssis &amp; Construction</span></div>
+              <div class="project-detail"><span class="detail-label">Style</span><span class="detail-val">Élégant, premium, épuré</span></div>
+            </div>
+            <div class="project-chips">
+              <span class="chip accent">Site vitrine</span>
+              <span class="chip accent">Configurateur devis</span>
+              <span class="chip">SEO local</span>
+              <span class="chip">Design premium</span>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
   </div>
+
+  <div class="container">
+    <div class="carousel-footer">
+      <p class="carousel-hint">← Glissez pour explorer →</p>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </div>
+
 </section>
 
 
@@ -2132,7 +2583,7 @@ heroObserver.observe(heroSection);
 function animateCounter(el) {
   const target = parseInt(el.dataset.count, 10);
   const suffix = el.dataset.suffix || '';
-  const dur    = 1400;
+  const dur    = Math.min(2200, 600 + target * 1.6);
   const start  = performance.now();
   function tick(now) {
     const p = Math.min(1, (now - start) / dur);
@@ -2226,6 +2677,120 @@ if ('ontouchstart' in window) {
     el.textContent = 'Appuyez pour les détails →';
   });
 }
+
+/* ── Carousel draggable ── */
+(function() {
+  const wrapper = document.getElementById('carousel-wrapper');
+  const track   = document.getElementById('carousel-track');
+  const dotsBox = document.getElementById('carousel-dots');
+  if (!wrapper || !track) return;
+
+  const items = track.querySelectorAll('.carousel-item');
+  const count = items.length;
+  let currentIdx = 0;
+
+  // Build dots
+  const dots = [];
+  items.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Projet ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    dotsBox.appendChild(d);
+    dots.push(d);
+  });
+
+  function goTo(idx) {
+    currentIdx = Math.max(0, Math.min(count - 1, idx));
+    const item = items[currentIdx];
+    const itemLeft = item.offsetLeft - track.parentElement.offsetLeft;
+    const centerOffset = (wrapper.offsetWidth - item.offsetWidth) / 2;
+    track.style.transition = 'transform 0.45s cubic-bezier(.22,1,.36,1)';
+    track.style.transform = `translateX(${-(itemLeft - centerOffset)}px)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+  }
+
+  // Drag / swipe state
+  let isDragging = false;
+  let startX = 0;
+  let startTranslate = 0;
+  let currentTranslate = 0;
+  let velX = 0;
+  let lastX = 0;
+  let lastT = 0;
+  let rafId = null;
+
+  function getTranslateX() {
+    const m = new DOMMatrix(getComputedStyle(track).transform);
+    return m.m41;
+  }
+
+  function onStart(x) {
+    isDragging = true;
+    startX = x;
+    startTranslate = getTranslateX();
+    currentTranslate = startTranslate;
+    velX = 0; lastX = x; lastT = Date.now();
+    track.style.transition = 'none';
+    wrapper.classList.add('is-dragging');
+    cancelAnimationFrame(rafId);
+  }
+
+  function onMove(x) {
+    if (!isDragging) return;
+    const dx = x - startX;
+    currentTranslate = startTranslate + dx;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+    const now = Date.now();
+    velX = (x - lastX) / Math.max(1, now - lastT) * 16;
+    lastX = x; lastT = now;
+  }
+
+  function onEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    wrapper.classList.remove('is-dragging');
+
+    // Inertia
+    function inertia() {
+      velX *= 0.90;
+      currentTranslate += velX;
+      track.style.transform = `translateX(${currentTranslate}px)`;
+      if (Math.abs(velX) > 0.5) {
+        rafId = requestAnimationFrame(inertia);
+      } else {
+        snapToNearest();
+      }
+    }
+    rafId = requestAnimationFrame(inertia);
+  }
+
+  function snapToNearest() {
+    // Find which item center is closest to wrapper center
+    const wCenter = wrapper.offsetWidth / 2;
+    const translate = getTranslateX();
+    let best = 0; let bestDist = Infinity;
+    items.forEach((item, i) => {
+      const itemCenter = item.offsetLeft - track.parentElement.offsetLeft + item.offsetWidth / 2;
+      const dist = Math.abs(itemCenter + translate - wCenter);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    goTo(best);
+  }
+
+  // Mouse events
+  wrapper.addEventListener('mousedown', e => { e.preventDefault(); onStart(e.clientX); });
+  window.addEventListener('mousemove', e => { if (isDragging) onMove(e.clientX); });
+  window.addEventListener('mouseup', () => { if (isDragging) onEnd(); });
+
+  // Touch events
+  wrapper.addEventListener('touchstart', e => { onStart(e.touches[0].clientX); }, { passive: true });
+  wrapper.addEventListener('touchmove',  e => { onMove(e.touches[0].clientX); }, { passive: true });
+  wrapper.addEventListener('touchend',   () => onEnd());
+
+  // Init position
+  requestAnimationFrame(() => goTo(0));
+})();
 
 /* ── Burger menu ── */
 const burger = document.querySelector('.nav-burger');
